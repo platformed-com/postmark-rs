@@ -4,9 +4,11 @@ use serde::{Deserialize, Serialize};
 use std::fmt;
 
 mod delete_suppression;
+mod edit_message_stream;
 mod get_suppressions;
 
 pub use delete_suppression::*;
+pub use edit_message_stream::*;
 pub use get_suppressions::*;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]
