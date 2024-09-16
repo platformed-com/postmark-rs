@@ -2,7 +2,7 @@ use std::borrow::Cow;
 
 use async_trait::async_trait;
 use bytes::Bytes;
-use http::{Request, Response};
+use http::{Request, Response, Uri};
 use std::error::Error;
 use thiserror::Error;
 
@@ -90,6 +90,8 @@ where
 
         let response = client.execute(http_req).await.map_err(QueryError::client)?;
 
+        println!("{:?}", &response);
+        println!("{:?}", self.endpoint().parse::<Uri>().unwrap().query());
         Ok(serde_json::from_slice(response.body())?)
     }
 }

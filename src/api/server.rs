@@ -1,12 +1,16 @@
 //! You'll find in email sending related endpoints.
 
+use std::fmt;
+
+use serde::{Deserialize, Serialize};
+
 pub use create_server::*;
 pub use get_server::*;
-use serde::{Deserialize, Serialize};
-use std::fmt;
+pub use list_servers::*;
 
 mod create_server;
 mod get_server;
+mod list_servers;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub enum ServerIdOrName {
